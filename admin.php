@@ -31,7 +31,7 @@
 			</div>
 			
 			<div>
-				<h1 id="#countdown">jag vill bytas ut</h1>
+				<div id="countdown">jag vill bytas ut</div>
 				
 			</div>
 		</section>

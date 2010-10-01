@@ -1,8 +1,10 @@
 <?php 
-	if (isset($_GET['time'])){
-		$_SESSION['time']=26;
+session_start();
+
+if (isset($_GET['time'])){
+		$_SESSION['time']=$_GET['time'];
 		
-		echo $_SESSION['time']; 
+		echo true; 
 	}
 
 

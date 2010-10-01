@@ -4,9 +4,7 @@ $(document).ready(function() {
 	
 	var timeLeft = 1;
 	getTimer();
-	var timeId = window.setInterval("timeLeft = getTimer();", 5000);
-	$('#countdown').html(timeLeft);
-	$("#countdown").val(timeLeft);
+	var timeId = window.setInterval("timeLeft = getTimer();", 1000);
 	if (timeLeft == 0) {
 		window.clearInterval(timeId);
 	}
@@ -37,6 +35,7 @@ function getTimer(){
 			url : "ajax/getTimer.php",
 			success : function(result) {
 				res = result;
+				$('#countdown').html(result);
 			},
 			dataType : "json"
 		});
