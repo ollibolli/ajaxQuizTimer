@@ -1,8 +1,13 @@
 <?php
 session_start();
 
-$time = $_SESSION['time'];
-$_SESSION['time']--;
-	echo json_encode($time);
+
+if ($_SESSION['pause']){			
+		$time = $_SESSION['left'];
+	}else { 
+		$time = $_SESSION['time'] - time(); 
+	}
+
+echo json_encode($time);
 	
 ?>

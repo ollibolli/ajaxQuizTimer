@@ -1,4 +1,7 @@
-<?php session_start() ?>
+<?php session_start();
+$_SESSION['pause'] = false;
+?>
+
 <!DOCTYPE HTML>
 <html>
   <head>
