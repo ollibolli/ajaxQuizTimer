@@ -1,15 +1,11 @@
 $(document).ready(function() {
 	
-	
-	
 	var timeLeft = 1;
 	getTimer();
 	var timeId = window.setInterval("timeLeft = getTimer();", 1000);
 	if (timeLeft == 0) {
 		window.clearInterval(timeId);
 	}
-	
-	
 	
 	
 	$("#start_timer").submit(function() {
@@ -25,6 +21,17 @@ $(document).ready(function() {
 	})
 	
 	
+	/* PAUSE FUNCTION */
+	var pause = false;
+	$("#pause_timer").click(function() {
+		$.ajax({
+			url : "ajax/pauseTimer.php",
+			data : !pause,
+			success : function(result) {
+				console.log("Pause: " + result);
+			}
+		})
+	})
 	
 
 })
