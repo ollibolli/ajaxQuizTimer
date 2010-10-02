@@ -16,6 +16,14 @@
 		<div id="counter">
 			<p id="countdown"></p>
 		</div>
+		
+		<div id="score">
+			
+		</div>
+		
+		<div id="total_score">
+			
+		</div>
 	
   </body>
 </html>

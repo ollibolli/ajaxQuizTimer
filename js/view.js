@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 	var timeLeft = 1;
 	getTimer();
-	var timeId = window.setInterval("timeLeft = getTimer();", 10);
+	var timeId = window.setInterval("timeLeft = getTimer();", 500);
 	if (timeLeft == 0) {
 		window.clearInterval(timeId);
 	}
