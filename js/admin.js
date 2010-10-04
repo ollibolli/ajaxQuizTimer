@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	getTimer();
+	//getTimer();
 	
 	$("#start_timer").submit(function() {
 		$.ajax( {
