@@ -49,13 +49,19 @@ $(document).ready(function() {
 			data : $(this).serialize(),
 			success : function(result) {
 				$.ajax({
-					url : "ajax/getResult.php",
-					success : function(result) {
-						console.log(result);
-						for (var key in result) {
-							console.log(result['data'][key]);
+					url : "ajax/getTotalResult.php",
+					success : function(data) {
+						$(".addPoints").attr("value", 0);
+						$("#teams tbody tr").each(function() {
+							var i = $(this).index();
+							$(this).find("td:last-child").html(data["data"][point][i]);
+						})
+						for (var point in data["data"]) {
+							console.log(data["data"][point]); //<- lista med all poänghistorik
+							
 						}
-					}
+					},
+					dataType : "json"
 				})
 			}
 		});
