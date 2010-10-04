@@ -1,6 +1,10 @@
 <?php session_start();
 $_SESSION['pause'] = false;
+<<<<<<< HEAD
 $_SESSION['state'] = "getTimer";
+=======
+$_SESSION['teams'] = array('name' => 'Lag 1', 'points' => 0);
+>>>>>>> 9e3c6853584cd284dc97dcd126982b915fbc6366
 ?>
 
 <!DOCTYPE HTML>
@@ -38,7 +42,35 @@ $_SESSION['state'] = "getTimer";
 				<div id="countdown">jag vill bytas ut</div>
 				
 			</div>
+			
 		</section>
-					
+		
+		
+		<section id="points">
+			
+			<table>
+				<thead>
+					<tr>
+						<th>Lag</th>
+						<th class="totalpoints">Total poäng</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Lag 1</td>
+						<td class="totalpoints">101</td>
+					</tr>
+				</tbody>
+			</table>
+			<a href="#" class="addTeam">Lägg till ett lag</a>
+			<div id="addTeam">
+				<form action="ajax/addTeam.php" method="get">
+					<label for="teamName">Fyll i lagnamn</label>
+					<input type="text" id="teamName" name="teamName" placeholder="Lagnamn" />
+					<input type="submit" value="Spara" />
+				</form>
+			</div>
+		</section>
+				
   </body>
 </html>
