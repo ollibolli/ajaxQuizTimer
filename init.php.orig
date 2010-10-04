@@ -21,6 +21,9 @@
 		$_SESSION['lastResult'] = array();
 	}
 	
+<<<<<<< HEAD
+	$_SESSION['teams'] = array(); 
+=======
 	//NOLLSTÄLL SESSION, BORTKOMMENTERA OCH KÖR (GLÖM INTE ATT KOMMENTERA IGEN SEN)
 	//resetSession();
 	
@@ -32,5 +35,6 @@
 		$_SESSION['lastResult'] = array();
 		$_SESSION['time'] = 0;
 	}
+>>>>>>> 6eb720305c04104726caf55f33854630af710559
 	
 ?>

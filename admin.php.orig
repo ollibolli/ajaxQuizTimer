@@ -1,18 +1,19 @@
-<?php session_start();
-$_SESSION['pause'] = false;
-$_SESSION['state'] = "getTimer";
+<?php 
 <<<<<<< HEAD
-$_SESSION['RESULT'] = 0;
-
-
-
+	//require_once "init.php";
+for ($i=0; $i<10;$i++){
+	$_SESSION['teams'] []= array( "team-$i" => $_POST["team-$i"] , "poang" => 0 );
 =======
-$_SESSION['teams'] = array('name' => 'Lag 1', 'points' => 0);
-?>
->>>>>>> 502cc8210608bc7028aee1cf2b4c004d203af9d7
-
-
-
+	require_once "init.php";
+for ($i=0; $i<10;$i++){
+	$_SESSION['teams'];
+}
+>>>>>>> 6eb720305c04104726caf55f33854630af710559
+	
+}
+echo "<pre>";
+print_r($_SESSION['teams']);	
+echo "</pre>";
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -22,6 +23,7 @@ $_SESSION['teams'] = array('name' => 'Lag 1', 'points' => 0);
 		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
 		<script type="text/javascript" src="js/teamClass.js"></script>
 		<script type="text/javascript" src="js/admin.js"></script>
+		<script type="text/javascript" src="js/admin_state.js"></script>
 
     <link href="css/core.css" media="screen" rel="stylesheet" type="text/css" />
 		<link href="css/admin.css" media="screen" rel="stylesheet" type="text/css" />
@@ -41,35 +43,39 @@ $_SESSION['teams'] = array('name' => 'Lag 1', 'points' => 0);
 			
 			<div id="manage_timer">
 				<button id="pause_timer">Pause</button>
-				<button id="stop_timer">Stop</button>				
-				<label for="admin_countdown">Tid kvar</label>
-				<input type="text" id="admin_countdown" name="admin_countdown" />
-			</div>
-			
-			<div>
 				<div id="countdown">jag vill bytas ut</div>
-				
-			</div>
-			
+
+			</div>			
 		</section>
 		
 		
-		<section id="points">
+		<section id="teams">
 			
+			<form id="setResult" action="ajax/setResult.php" method="get">
 			<table>
+				
 				<thead>
 					<tr>
 						<th>Lag</th>
-						<th class="totalpoints">Total poäng</th>
+						<th class="newScore">Ny poäng</th>
+						<th class="totalScore">Total poäng</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>Lag 1</td>
-						<td class="totalpoints">101</td>
-					</tr>
+
+					<!-- TR FÖR VARJE LAG -->
+					
 				</tbody>
+				<tfoot>
+					<tr>
+						<td></td>
+						<td><input type="submit" value="Spara" /></td>
+						<td></td>
+				</tfoot>
+				
 			</table>
+			</form>
+			
 			<a href="#" class="addTeam">Lägg till ett lag</a>
 			<div id="addTeam">
 				<form action="ajax/addTeam.php" method="get">
@@ -79,6 +85,16 @@ $_SESSION['teams'] = array('name' => 'Lag 1', 'points' => 0);
 				</form>
 			</div>
 		</section>
+		
+		<section id="state">
+			<form  action="ajax/setState.php" method="post" id="state_form">
+				<input type="radio" name="state" value="getTimer" id="state_timer"/><label for="state_timer"> VISA RÄKNARE</label> 
+				<input type="radio" name="state" value="getResult" id="state_result"/><label for="state_result">VISA RESULTAT</label>
+				<input type="radio" name="state" value="getPoints" id="state_points"/><label for="state_points">VISA  POÄNGSTÄLLNING</label>
+			</form>
+		
+		</section>
+		
 				
   </body>
 </html>

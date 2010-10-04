@@ -49,17 +49,16 @@ $(document).ready(function() {
 			data : $(this).serialize(),
 			success : function(result) {
 				$.ajax({
-					url : "ajax/getTotalResult.php",
+					url : "ajax/getResult.php",
 					success : function(data) {
 						$(".addPoints").attr("value", 0);
 						$("#teams tbody tr").each(function() {
 							var i = $(this).index();
-							$(this).find("td:last-child").html(data["data"][point][i]);
+							if (parseInt(data["data"][i]) > 0) {
+								$(this).hide().fadeIn(500);
+								$(this).children(".totalScore").text( parseInt($(this).children(".totalScore").text()) + parseInt(data["data"][i]) );
+							}
 						})
-						for (var point in data["data"]) {
-							console.log(data["data"][point]); //<- lista med all poänghistorik
-							
-						}
 					},
 					dataType : "json"
 				})
@@ -80,7 +79,7 @@ function getTeams() {
 				$("<td>").html(result[teamId]['name']).appendTo(row);
 				var input = $("<input>").attr("type", "text").attr("value", 0).attr("name", "team-" + teamId).addClass("addPoints");
 				$("<td>").append(input).appendTo(row);
-				$("<td>").html(result[teamId]['points']).appendTo(row);
+				$("<td>").html(result[teamId]['points']).addClass("totalScore").appendTo(row);
 				$("#teams tbody").append(row);
 			}
 		},
@@ -98,7 +97,7 @@ function getLastTeam() {
 				var name = $("<td>").html(result[team]['name']);
 				var numberOfTeams = $(".addPoints").length;
 				var input = $("<input>").attr("type", "text").attr("value", 0).attr("name", "team-" + 1).addClass("addPoints");
-				var point = $("<td>").html(result[team]['points']);
+				var point = $("<td>").html(result[team]['points']).addClass("totalScore");
 				row.append(name).append(point);
 			}
 			$("#teams tbody").append(row);
