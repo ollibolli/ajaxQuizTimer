@@ -13,8 +13,12 @@
 		$_SESSION['state'] = "getTimer";
 	}
 	
-	if (!isset($_SESSION['RESULT'])) {
-		$_SESSION['RESULT'] = 0;
+	if (!isset($_SESSION['result'])) {
+		$_SESSION['result'] = 0;
+	}
+	
+	if (!isset($_SESSION['lastResult'])) {
+		$_SESSION['lastResult'] = array();
 	}
 	
 ?>
