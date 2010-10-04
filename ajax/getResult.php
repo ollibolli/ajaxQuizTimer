@@ -1,7 +1,18 @@
 <?php
-start_session();
+session_start();
 
 $data['state'] = $_SESSION['state'];
-$data['data']= array('LAG1'=>0,'Lag 2'=> 0,'LAG3'=>0,'Lag 4'=> 0);
 
-echo json_enncode($data);
+// 
+/*fråga		LAG 1 	LAG2	Lag3
+ * 1		8		0		9
+ * 2		9		0		0
+ * 
+ * teams	33		44		44
+ */
+
+
+
+$data['data']= array('LAG1'=>4,'Lag 2'=> 6,'LAG3'=>7,'Lag 4'=> 7);
+
+echo json_encode($data);

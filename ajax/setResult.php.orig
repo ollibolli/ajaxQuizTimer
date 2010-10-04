@@ -1,7 +1,10 @@
 <?php
 session_start();
+<<<<<<< HEAD
 if (isset($_GET['submit'])){
 	$_SESSION['result'][] = $_GET;
 	
 };
 
+=======
+>>>>>>> e1aa422dc5909117ecfca46bfa807b39183b73af
