@@ -16,7 +16,9 @@ function getTimer(){
 			$('#result').hide();
 			$('#points').hide();
 
-			
+			if (res['data']<=0){
+				res['data']=0;
+			}
 			$('#countdown').html(res['data']);
 			console.log(res);
 		},
@@ -47,8 +49,24 @@ function getResult(){
 }
 
 function getPoints(){
-	setNextQuestion("getTimer");	
-	console.log("getPoints");
+	$.ajax( {
+		url : "ajax/getPoints.php",
+		success : function(result) {
+			res = result;	
+			setNextQuestion(res['state']);
+			$('#points').show();
+			$('#result').hide();
+			$('#countdown').hide();
+			
+			$('#points_tabel_head').html('');
+			$('#points_tabel_body').html('');
+			for (var lag in res['data']){
+				$('#points_tabel_head').append('<th>'+ lag + '</th>');
+				$('#points_tabel_body').append('<th>'+res['data'][lag] + '</th>');
+			}
+		},
+		dataType : "json"
+	});
 }
 
 function setNextQuestion(state){
@@ -59,18 +77,7 @@ function setNextQuestion(state){
 		window.setTimeout("getTimer();", 250);
 	}
 	if (state == "getPoints"){
-		window.setTimeout("getResult();", 250);
+		window.setTimeout("getPoints();", 250);
 	}
 }
 
-
-function displayResult(result){
-	for (var team in result['data']){
-		row = $("<tr>");
-		var name = ($("<td></td>")).addClass("name").html(result[team]['name']);
-		var point = ($("<td></td>")).addClass("point").html(result[team]['points']);
-		row.append(name).append(point);
-	}
-	$("# tbody").append(row);
-
-}

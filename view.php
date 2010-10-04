@@ -48,6 +48,30 @@
 			</table>
 		
 		</div>
+
+		<div id="points">
+			<table id="points_tabel">
+			POÄNGSTÄLLNING
+				<thead>
+					<tr id="points_tabel_head">
+						<th>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr id="points_tabel_body">
+						<td>
+						
+						
+						</td>
+					</tr>
+				</tbody>
+			
+			
+			
+			</table>
+		
+		</div>
 	
   </body>
 </html>
