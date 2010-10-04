@@ -1,13 +1,5 @@
-<?php session_start();
-//$_SESSION=array();
-$_SESSION['pause'] = false;
-$_SESSION['state'] = "getTimer";
-$_SESSION['RESULT'] = 0;
-//$_SESSION['teams'] = array();
-
-
-
-
+<?php 
+	require_once "init.php";
 
 ?>
 <!DOCTYPE HTML>
