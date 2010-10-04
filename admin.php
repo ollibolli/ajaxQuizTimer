@@ -1,9 +1,12 @@
 <?php 
-	require_once "init.php";
-for ($i=0 $<10;$i++){
-	$_SESSION['teams'];
-}
+	//require_once "init.php";
+for ($i=0; $i<10;$i++){
+	$_SESSION['teams'] []= array( "team-$i" => $_POST["team-$i"] , "poang" => 0 );
 	
+}
+echo "<pre>";
+print_r($_SESSION['teams']);	
+echo "</pre>";
 ?>
 <!DOCTYPE HTML>
 <html>

@@ -15,7 +15,7 @@ require_once("init.php");
 		
   </head>
   <body>
-   	<form action = "admin.php">
+   	<form action = "admin.php" method="post">
 	<?php for ($i = 0 ; $i<10 ; $i++){ 
   		echo "<label for='team-$i'  >Lag {$i}</label>";
   		echo "<input type='text' name='team-$i' />";

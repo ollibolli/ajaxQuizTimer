@@ -21,4 +21,6 @@
 		$_SESSION['lastResult'] = array();
 	}
 	
+	$_SESSION['teams'] = array(); 
+	
 ?>
