@@ -5,7 +5,10 @@ if (isset($_GET['team-0'])){
 	$newPoints = array();
 	
 	for ($i = 0; $i < 10; $i++) {
-		$newPoints[$i] = $_GET["team-" . $i];
+		if (isset($_GET["team-" . $i])) {
+			$newPoints[$i] = $_GET["team-" . $i];
+			$_SESSION['teams'][$i]['points'] += $newPoints[$i];
+		}
 	}
 	
 	$_SESSION['lastResult'] = $newPoints;
