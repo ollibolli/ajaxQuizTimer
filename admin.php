@@ -38,20 +38,31 @@
 		
 		<section id="teams">
 			
+			<form id="setResult" action="ajax/setResult.php" method="get">
 			<table>
+				
 				<thead>
 					<tr>
 						<th>Lag</th>
-						<th class="totalpoints">Total poäng</th>
+						<th class="newScore">Ny poäng</th>
+						<th class="totalScore">Total poäng</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>Lag 1</td>
-						<td class="totalpoints">101</td>
-					</tr>
+
+					<!-- TR FÖR VARJE LAG -->
+					
 				</tbody>
+				<tfoot>
+					<tr>
+						<td></td>
+						<td><input type="submit" value="Spara" /></td>
+						<td></td>
+				</tfoot>
+				
 			</table>
+			</form>
+			
 			<a href="#" class="addTeam">Lägg till ett lag</a>
 			<div id="addTeam">
 				<form action="ajax/addTeam.php" method="get">
