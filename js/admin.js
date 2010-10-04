@@ -39,7 +39,7 @@ $(document).ready(function() {
 	/* TEAMS */
 	$("a.addTeam").click(function() {
 		$("#addTeam").toggle();
-	})
+	});
 	$("#addTeam form").submit(function() {
 		$.ajax( {
 			url : $(this).attr("action"),
@@ -51,26 +51,20 @@ $(document).ready(function() {
 		return false;
 	})
 	
-	var getTeamTimer = window.setInterval("teams = getTeams();", 2000);
-	if (timeLeft == 0) {
-		window.clearInterval(getTeamTimer);
-	}
-	
+	//localStorage.setItem("teams", jQuery.parseJSON('{ "name": "Lag 1", "points": 0 }'));
+	localStorage.teams = new Team("Lag 1");
+	myTeam = new Team("Lightnings");
+	console.log(myTeam);
+	localStorage.time = 0;
+	var timmmer = window.setInterval("localStorage.time++", 1000);
+	var getTeamTimer = window.setInterval("console.log(localStorage.time)", 2000);
 
 })
 
-function getTeams() {
-	var res = 100;
-	$.ajax( {
-		url : "ajax/getTimer.php",
-		success : function(result) {
-			res = result;
-			$('#teams').html(result);
-		},
-		dataType : "json"
-	});
-	return res;
-}
+
+	//localStorage.teams = 
+	// console.log());
+
 
 function getTimer(){
 	var res = 100;

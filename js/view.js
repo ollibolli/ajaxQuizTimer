@@ -7,6 +7,7 @@ $(document).ready(function() {
 		window.clearInterval(timeId);
 	}
 
+	
 })
 
 function getTimer(){

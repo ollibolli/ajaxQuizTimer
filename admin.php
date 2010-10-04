@@ -1,6 +1,5 @@
 <?php session_start();
 $_SESSION['pause'] = false;
-$_SESSION['teams'] = array('name' => 'Lag 1', 'points' => 0);
 ?>
 
 <!DOCTYPE HTML>
@@ -9,6 +8,7 @@ $_SESSION['teams'] = array('name' => 'Lag 1', 'points' => 0);
     <title>Quiz - Admin (Ändra mig sen)</title>
 		
 		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="js/teamClass.js"></script>
 		<script type="text/javascript" src="js/admin.js"></script>
 
     <link href="css/core.css" media="screen" rel="stylesheet" type="text/css" />
