@@ -1,10 +1,15 @@
 <?php session_start();
 $_SESSION['pause'] = false;
 $_SESSION['state'] = "getTimer";
+<<<<<<< HEAD
 $_SESSION['RESULT'] = 0;
 
 
 
+=======
+$_SESSION['teams'] = array('name' => 'Lag 1', 'points' => 0);
+?>
+>>>>>>> 502cc8210608bc7028aee1cf2b4c004d203af9d7
 
 
 

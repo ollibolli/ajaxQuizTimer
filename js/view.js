@@ -3,7 +3,7 @@ $(document).ready(function() {
 	var timeLeft=getTimer();
 	//window.setTimeout("getTimer();", 1000);
 
-});
+})
 
 function getTimer(){
 	var res = 0;
