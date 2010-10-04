@@ -37,8 +37,7 @@ $(document).ready(function() {
 			url : $(this).attr("action"),
 			data : $(this).serialize(),
 			success : function(result) {
-				//console.log(result);
-				getTeams();
+				getLastTeam();
 			}
 		});
 		return false;
@@ -46,7 +45,7 @@ $(document).ready(function() {
 });
 
 function getTeams() {
-	$.ajax( {
+	$.ajax({
 		url : "ajax/getTeams.php",
 		success : function(result) {
 			for (var team in result){
@@ -55,12 +54,24 @@ function getTeams() {
 				var point = ($("<td></td>")).addClass("point").html(result[team]['points']);
 				row.append(name).append(point);
 				$("#teams tbody").append(row);
-				//console.log(result[team]['name'] +" "+);
 			}
-				
-		
-		//$('#teams tbody').html(teams);
-		// 	console.log(result);
+		},
+		dataType : "json"
+	})
+}
+
+function getLastTeam() {
+	var row;
+	$.ajax({
+		url : "ajax/getTeams.php",
+		success : function(result) {
+			for (var team in result){
+				row = $("<tr>");
+				var name = ($("<td></td>")).addClass("name").html(result[team]['name']);
+				var point = ($("<td></td>")).addClass("point").html(result[team]['points']);
+				row.append(name).append(point);
+			}
+			$("#teams tbody").append(row);
 		},
 		dataType : "json"
 	})
