@@ -1,6 +1,5 @@
 $(document).ready(function() {
-	
-	//var timeLeft = getTimer();
+	getTimer();
 	
 	$("#start_timer").submit(function() {
 		$.ajax( {
@@ -27,10 +26,9 @@ $(document).ready(function() {
 		})
 	})
 	
-	
-	
-	
 	/* TEAMS */
+	getTeams();
+	
 	$("a.addTeam").click(function() {
 		$("#addTeam").toggle();
 	});
@@ -39,50 +37,47 @@ $(document).ready(function() {
 			url : $(this).attr("action"),
 			data : $(this).serialize(),
 			success : function(result) {
-				console.log(result);
+				//console.log(result);
+				getTeams();
 			}
 		});
 		return false;
 	})
-	
-	//localStorage.setItem("teams", jQuery.parseJSON('{ "name": "Lag 1", "points": 0 }'));
-	localStorage.teams = new Team("Lag 1");
-	myTeam = new Team("Lightnings");
-	console.log(myTeam);
-	localStorage.time = 0;
-	var timmmer = window.setInterval("localStorage.time++", 1000);
-	var getTeamTimer = window.setInterval("console.log(localStorage.time)", 2000);
-
-})
-
-
-	//localStorage.teams = 
-	// console.log());
-
-	});	
-
-	$("#stop_timer").click(function() {
-		$.ajax({
-			url : "ajax/stopTimer.php",
-			data : !pause,
-			success : function(result) {
-			console.log("STOP: " + result);
-		}
-		})
-	});	
 });
+
+function getTeams() {
+	$.ajax( {
+		url : "ajax/getTeams.php",
+		success : function(result) {
+			for (var team in result){
+				var row = $("<tr>");
+				var name = ($("<td></td>")).addClass("name").html(result[team]['name']);
+				var point = ($("<td></td>")).addClass("point").html(result[team]['points']);
+				row.append(name).append(point);
+				$("#teams tbody").append(row);
+				//console.log(result[team]['name'] +" "+);
+			}
+				
+		
+		//$('#teams tbody').html(teams);
+		// 	console.log(result);
+		},
+		dataType : "json"
+	})
+}
 
 function getTimer(){
 	var res = 0;
 	$.ajax( {
 		url : "ajax/getTimer.php",
 		success : function(result) {
-			$('#countdown').html(result);
-			return res;
+			res = result;	
+			// 
+			window.setTimeout("getTimer();", 1000);
+			$('#countdown').html(res['data']);
+			console.log(res);
 		},
 		dataType : "json"
 	});
-	console.log(res);
-	window.setTimeout("getTimer();", 1000);
-	return res;
+	
 }

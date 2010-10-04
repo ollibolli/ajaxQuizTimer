@@ -1,8 +1,9 @@
 <?php session_start();
+//$_SESSION=array();
 $_SESSION['pause'] = false;
 $_SESSION['state'] = "getTimer";
 $_SESSION['RESULT'] = 0;
-
+//$_SESSION['teams'] = array();
 
 
 
@@ -36,20 +37,13 @@ $_SESSION['RESULT'] = 0;
 			
 			<div id="manage_timer">
 				<button id="pause_timer">Pause</button>
-				<button id="stop_timer">Stop</button>				
-				<label for="admin_countdown">Tid kvar</label>
-				<input type="text" id="admin_countdown" name="admin_countdown" />
-			</div>
-			
-			<div>
 				<div id="countdown">jag vill bytas ut</div>
-				
-			</div>
-			
+
+			</div>			
 		</section>
 		
 		
-		<section id="points">
+		<section id="teams">
 			
 			<table>
 				<thead>
