@@ -48,7 +48,6 @@ function getTeams() {
 	$.ajax({
 		url : "ajax/getTeams.php",
 		success : function(result) {
-			//var form = $("<form>").attr("action","ajax/setResult.php").prependTo("#teams table");
 			for (var teamId in result){
 				var row = $("<tr>");
 				$("<td>").html(result[teamId]['name']).appendTo(row);
@@ -57,7 +56,6 @@ function getTeams() {
 				$("<td>").html(result[teamId]['points']).appendTo(row);
 				$("#teams tbody").append(row);
 			}
-			//$("<input>").attr("type", "submit").attr("name", "submit").attr("value", "Spara").appendTo(form);
 		},
 		dataType : "json"
 	})
