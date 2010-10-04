@@ -9,6 +9,7 @@ if (isset($_GET['team-0'])){
 	}
 	
 	$_SESSION['lastResult'] = $newPoints;
+	//array_push($_SESSION['result'], $newPoints);
 	$_SESSION['result'][] = $newPoints;
 	
 };

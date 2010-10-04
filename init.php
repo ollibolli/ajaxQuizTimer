@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	
+
 	if (!isset($_SESSION['teams'])) {
 		$_SESSION['teams'] = array();
 	}
@@ -14,7 +14,7 @@
 	}
 	
 	if (!isset($_SESSION['result'])) {
-		$_SESSION['result'] = 0;
+		$_SESSION['result'] = array();
 	}
 	
 	if (!isset($_SESSION['lastResult'])) {
