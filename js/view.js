@@ -22,7 +22,16 @@ function getTimer(){
 }
 
 function getResult(){
-	setNextQuestion("getTimer");
+	$.ajax( {
+		url : "ajax/getResult.php",
+		success : function(result) {
+			res = result;	
+			setNextQuestion(res['state']);
+			$('#result').html(res['data']);
+			console.log(res);
+		},
+		dataType : "json"
+	});
 }
 
 function getPoints(){
@@ -35,6 +44,6 @@ function setNextQuestion(state){
 		window.setTimeout("getTimer();", 1000);
 	}
 	if (state = "getResult"){
-		//window.setTimeout("getResult();", 1000);
+		window.setTimeout("getResult();", 1000);
 	}
 }

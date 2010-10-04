@@ -10,6 +10,7 @@
 		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
 		<script type="text/javascript" src="js/teamClass.js"></script>
 		<script type="text/javascript" src="js/admin.js"></script>
+		<script type="text/javascript" src="js/admin_state.js"></script>
 
     <link href="css/core.css" media="screen" rel="stylesheet" type="text/css" />
 		<link href="css/admin.css" media="screen" rel="stylesheet" type="text/css" />
@@ -67,6 +68,16 @@
 				</form>
 			</div>
 		</section>
+		
+		<section id="state">
+			<form  action="ajax/setState.php" method="post" id="state_form">
+				<input type="radio" name="state" value="getTimer" id="state_timer"/><label for="state_timer"> VISA RÄKNARE</label> 
+				<input type="radio" name="state" value="getResult" id="state_result"/><label for="state_result">VISA RESULTAT</label>
+				<input type="radio" name="state" value="getPoints" id="state_points"/><label for="state_points">VISA  POÄNGSTÄLLNING</label>
+			</form>
+		
+		</section>
+		
 				
   </body>
 </html>
