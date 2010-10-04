@@ -1,6 +1,16 @@
 $(document).ready(function() {
 	
+<<<<<<< HEAD
 	//var timeLeft = getTimer();
+=======
+	var timeLeft = 1;
+	getTimer();
+	var timeId = window.setInterval("timeLeft = getTimer();", 2000);
+	if (timeLeft == 0) {
+		window.clearInterval(timeId);
+	}
+	
+>>>>>>> 9e3c6853584cd284dc97dcd126982b915fbc6366
 	
 	$("#start_timer").submit(function() {
 		$.ajax( {
@@ -25,6 +35,9 @@ $(document).ready(function() {
 				console.log("Pause: " + result);
 			}
 		})
+<<<<<<< HEAD
+	});	
+=======
 	})
 	
 	
@@ -33,7 +46,7 @@ $(document).ready(function() {
 	/* TEAMS */
 	$("a.addTeam").click(function() {
 		$("#addTeam").toggle();
-	});
+	})
 	$("#addTeam form").submit(function() {
 		$.ajax( {
 			url : $(this).attr("action"),
@@ -45,21 +58,12 @@ $(document).ready(function() {
 		return false;
 	})
 	
-	//localStorage.setItem("teams", jQuery.parseJSON('{ "name": "Lag 1", "points": 0 }'));
-	localStorage.teams = new Team("Lag 1");
-	myTeam = new Team("Lightnings");
-	console.log(myTeam);
-	localStorage.time = 0;
-	var timmmer = window.setInterval("localStorage.time++", 1000);
-	var getTeamTimer = window.setInterval("console.log(localStorage.time)", 2000);
-
-})
-
-
-	//localStorage.teams = 
-	// console.log());
-
-	});	
+	var getTeamTimer = window.setInterval("teams = getTeams();", 2000);
+	if (timeLeft == 0) {
+		window.clearInterval(getTeamTimer);
+	}
+	
+>>>>>>> 9e3c6853584cd284dc97dcd126982b915fbc6366
 
 	$("#stop_timer").click(function() {
 		$.ajax({
@@ -72,7 +76,21 @@ $(document).ready(function() {
 	});	
 });
 
+function getTeams() {
+	var res = 100;
+	$.ajax( {
+		url : "ajax/getTimer.php",
+		success : function(result) {
+			res = result;
+			$('#teams').html(result);
+		},
+		dataType : "json"
+	});
+	return res;
+}
+
 function getTimer(){
+<<<<<<< HEAD
 	var res = 0;
 	$.ajax( {
 		url : "ajax/getTimer.php",
@@ -86,3 +104,16 @@ function getTimer(){
 	window.setTimeout("getTimer();", 1000);
 	return res;
 }
+=======
+	var res = 100;
+	$.ajax( {
+		url : "ajax/getTimer.php",
+		success : function(result) {
+			res = result;
+			$('#countdown').html(result);
+		},
+		dataType : "json"
+	});
+	return res;
+}
+>>>>>>> 9e3c6853584cd284dc97dcd126982b915fbc6366
