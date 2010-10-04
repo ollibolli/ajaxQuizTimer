@@ -71,13 +71,13 @@ function getPoints(){
 
 function setNextQuestion(state){
 	if (state == "getResult"){
-		window.setTimeout("getResult();", 250);
+		window.setTimeout("getResult();", 1500);
 	}
 	if (state == "getTimer"){
-		window.setTimeout("getTimer();", 250);
+		window.setTimeout("getTimer();", 750);
 	}
 	if (state == "getPoints"){
-		window.setTimeout("getPoints();", 250);
+		window.setTimeout("getPoints();", 750);
 	}
 }
 

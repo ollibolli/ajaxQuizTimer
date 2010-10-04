@@ -5,6 +5,9 @@ $data['state'] = $_SESSION['state'];
 //$data['data']= array('LAG1'=>4,'Lag 2'=> 6,'LAG3'=>7,'Lag 4'=> 7);
 $data['data']= $_SESSION['lastResult'];
 
+<<<<<<< HEAD
+=======
 $data['data'] = $_SESSION['lastResult'];
+>>>>>>> c577d919786f97f335d5fdb12cc573ebd67b1c6a
 
 echo json_encode($data);

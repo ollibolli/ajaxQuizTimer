@@ -3,3 +3,14 @@
 #addTeam {
 	display: none;
 }
+
+.addPoints {
+	width: 50px;
+	padding: 3px 5px;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.addPoints:hover {
+	background: yellow;
+}
