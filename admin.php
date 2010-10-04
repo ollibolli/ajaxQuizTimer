@@ -1,5 +1,6 @@
 <?php session_start();
 $_SESSION['pause'] = false;
+$_SESSION['state'] = "getTimer";
 ?>
 
 <!DOCTYPE HTML>

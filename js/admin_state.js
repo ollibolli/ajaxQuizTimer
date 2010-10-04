@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	
-	//var timeLeft = getTimer();
+	var timeLeft = getTimer();
 	
 	$("#start_timer").submit(function() {
 		$.ajax( {
@@ -11,7 +11,7 @@ $(document).ready(function() {
 		},
 		dataType : "json"
 		});
-		//getTimer();
+		getTimer();
 		return false;
 	})
 	
@@ -24,16 +24,6 @@ $(document).ready(function() {
 			success : function(result) {
 				console.log("Pause: " + result);
 			}
-		})
-	});	
-
-	$("#stop_timer").click(function() {
-		$.ajax({
-			url : "ajax/stopTimer.php",
-			data : !pause,
-			success : function(result) {
-			console.log("STOP: " + result);
-		}
 		})
 	});	
 });
