@@ -40,14 +40,21 @@
 			<table>
 				<thead>
 					<tr>
-						<th>Lag</th>
-						<th class="totalpoints">Total poäng</th>
+						<!--
+							<th>Lag</th>
+						-->
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>Lag 1</td>
-						<td class="totalpoints">101</td>
+					<tr class="newScore">
+					<!--
+						<td>input för poäng per lag</td>
+					-->
+					</tr>
+					<tr class="totalScore">
+						<!--
+							<td>Total poäng per lag</td>
+						-->
 					</tr>
 				</tbody>
 			</table>

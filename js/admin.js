@@ -49,11 +49,15 @@ function getTeams() {
 		url : "ajax/getTeams.php",
 		success : function(result) {
 			for (var team in result){
+				/*
 				var row = $("<tr>");
 				var name = ($("<td></td>")).addClass("name").html(result[team]['name']);
 				var point = ($("<td></td>")).addClass("point").html(result[team]['points']);
 				row.append(name).append(point);
 				$("#teams tbody").append(row);
+				*/
+				$("<td>").html(result[team]['name']).appendTo("#teams thead");
+				
 			}
 		},
 		dataType : "json"
