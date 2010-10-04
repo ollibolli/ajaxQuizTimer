@@ -26,16 +26,19 @@
 		</div>
 	
 		<div id="result">
-			<table>
+			<table id="result_tabel">
+			RESULTAT	
 				<thead>
-					<tr>
+					<tr id="result_tabel_head">
 						<th>
 						</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
+					<tr id="result_tabel_body">
 						<td>
+						
+						
 						</td>
 					</tr>
 				</tbody>

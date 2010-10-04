@@ -65,13 +65,13 @@ function getLastTeam() {
 	$.ajax({
 		url : "ajax/getTeams.php",
 		success : function(result) {
-			for (var team in result){
+			for (var team in result['data']){
 				row = $("<tr>");
 				var name = ($("<td></td>")).addClass("name").html(result[team]['name']);
 				var point = ($("<td></td>")).addClass("point").html(result[team]['points']);
 				row.append(name).append(point);
 			}
-			$("#teams tbody").append(row);
+			$("#result_tabel tbody").append(row);
 		},
 		dataType : "json"
 	})
