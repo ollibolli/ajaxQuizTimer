@@ -1,31 +1,7 @@
-var timeId;
-var time;
 $(document).ready(function() {
 	
-
-	checkState();
-	getTimer();
+getTimer();
 });
-
-function checkState(){
-	$.ajax( {
-		url : "ajax/state.php",
-		success : function(result) {
-			console.log(result)
-			if (result == "getResult"){
-				getResult();
-			}
-			if (result== "getTimer"){
-				getTimer();
-			}
-			if (result== "getPoints"){
-				getPoints();
-			}
-			window.setTimeout("checkState();", 250);
-		},
-		dataType : "json"
-	});
-}
 	
 function getTimer(){
 	var res = 0;
@@ -40,11 +16,10 @@ function getTimer(){
 			if (res['data']<=0){
 				res['data']=0;
 			}
-			timeId = window.setTimeout('time=time - 1;',1000);
 			$('#countdown').html(res['data']);				
 			
 			
-			console.log(res);
+			//console.log(res);
 		},
 		dataType : "json"
 	});
@@ -55,16 +30,18 @@ function getResult(){
 	$.ajax( {
 		url : "ajax/getResult.php",
 		success : function(result) {
-			res = result;	
-			setNextQuestion(res['state']);
+			setNextQuestion(result['state']);
 			$('#result').show();
 			$('#countdown').hide();
-			$('#points').hide();			
-			$('#result_tabel_head').html('');
-			$('#result_tabel_body').html('');
-			for (var lag in res['data']){
-				$('#result_tabel_head').append('<th>'+ lag + '</th>');
-				$('#result_tabel_body').append('<th>'+res['data'][lag] + '</th>');
+			$('#points').hide();
+			for (var lag in result['data']){
+				var div = $("<div>").addClass("team");
+				$("<h2>").addClass("teamName").html(lag).appendTo(div);
+				$("<p>").addClass("teamPoints").html(result['data'][lag]).appendTo(div);
+				//$("#result").append(div);
+				
+				//$('#result_tabel_head').append('<th>'+ lag + '</th>');
+				//$('#result_tabel_body').append('<th>'+res['data'][lag] + '</th>');
 			}
 		},
 		dataType : "json"
@@ -95,14 +72,12 @@ function getPoints(){
 function setNextQuestion(state){
 	if (state == "getResult"){
 		window.setTimeout("getResult();", 1500);
-		window.clearTimeout(timeId);
 	}
 	if (state == "getTimer"){
-		window.setTimeout("getTimer();", 250);
+		window.setTimeout("getTimer();", 1000);
 	}
 	if (state == "getPoints"){
 		window.setTimeout("getPoints();", 750);
-		window.clearTimeout(timeID);
 	}
 }
 

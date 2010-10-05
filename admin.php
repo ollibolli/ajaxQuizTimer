@@ -1,22 +1,16 @@
 <?php 
 	session_start();
-	//require_once "init.php";
-	for ($i=0; $i<10;$i++){
-		if (isset($_POST["team-$i"]) && $_POST["team-$i"] != "") {
-			$_SESSION['teams'][] = array( "name" => $_POST["team-$i"] , "points" => 0 );
-		}
-	}
 
 ?>
 <!DOCTYPE HTML>
 <html>
   <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Quiz - Admin (Ändra mig sen)</title>
 		
 		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
 		<script type="text/javascript" src="js/teamClass.js"></script>
 		<script type="text/javascript" src="js/admin.js"></script>
-		<script type="text/javascript" src="js/admin_state.js"></script>
 
     <link href="css/core.css" media="screen" rel="stylesheet" type="text/css" />
 		<link href="css/admin.css" media="screen" rel="stylesheet" type="text/css" />

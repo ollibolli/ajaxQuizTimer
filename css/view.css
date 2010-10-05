@@ -9,3 +9,23 @@
 	top: 50%;
 	margin-top: -25px;
 }
+
+#result {
+	width: 100%;
+	top: 20%;
+	position: absolute;
+}
+
+table {
+	width: 100%;
+	font-size: 30px;
+}
+
+th {
+	height: 50px;
+}
+
+td {
+	width: 30%;
+	float: left;
+}

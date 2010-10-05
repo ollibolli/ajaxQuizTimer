@@ -1,10 +1,8 @@
 $(document).ready(function() {
-
-	var timeLeft=getTimer();
-	//window.setTimeout("getTimer();", 1000);
-
-})
-
+	
+getTimer();
+});
+	
 function getTimer(){
 	var res = 0;
 	$.ajax( {
@@ -15,12 +13,13 @@ function getTimer(){
 			$('#countdown').show();
 			$('#result').hide();
 			$('#points').hide();
-
 			if (res['data']<=0){
 				res['data']=0;
 			}
-			$('#countdown').html(res['data']);
-			console.log(res);
+			$('#countdown').html(res['data']);				
+			
+			
+			//console.log(res);
 		},
 		dataType : "json"
 	});
@@ -31,17 +30,18 @@ function getResult(){
 	$.ajax( {
 		url : "ajax/getResult.php",
 		success : function(result) {
-			res = result;	
-			setNextQuestion(res['state']);
+			setNextQuestion(result['state']);
 			$('#result').show();
 			$('#countdown').hide();
 			$('#points').hide();
-			
-			$('#result_tabel_head').html('');
-			$('#result_tabel_body').html('');
-			for (var lag in res['data']){
-				$('#result_tabel_head').append('<th>'+ lag + '</th>');
-				$('#result_tabel_body').append('<th>'+res['data'][lag] + '</th>');
+			for (var lag in result['data']){
+				var div = $("<div>").addClass("team");
+				$("<h2>").addClass("teamName").html(lag).appendTo(div);
+				$("<p>").addClass("teamPoints").html(result['data'][lag]).appendTo(div);
+				//$("#result").append(div);
+				
+				//$('#result_tabel_head').append('<th>'+ lag + '</th>');
+				//$('#result_tabel_body').append('<th>'+res['data'][lag] + '</th>');
 			}
 		},
 		dataType : "json"
@@ -72,16 +72,16 @@ function getPoints(){
 function setNextQuestion(state){
 	if (state == "getResult"){
 		window.setTimeout("getResult();", 1500);
+<<<<<<< HEAD
+		window.clearTimeout(timeId);
+=======
+>>>>>>> 65f97e109a9d42e2fae4b48811ed5077a2c1ec0d
 	}
 	if (state == "getTimer"){
-		window.setTimeout("getTimer();", 750);
+		window.setTimeout("getTimer();", 1000);
 	}
 	if (state == "getPoints"){
-<<<<<<< HEAD
-		window.setTimeout("getPoints();", 250);
-=======
-		window.setTimeout("getResult();", 750);
->>>>>>> c577d919786f97f335d5fdb12cc573ebd67b1c6a
+		window.setTimeout("getPoints();", 750);
 	}
 }
 
