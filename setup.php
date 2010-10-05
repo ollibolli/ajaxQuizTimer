@@ -15,10 +15,15 @@ require_once("init.php");
 		
   </head>
   <body>
-   	<form action = "admin.php" method="post">
+   	<form action = "initTeams.php" method="post">
 	<?php for ($i = 0 ; $i<10 ; $i++){ 
-  		echo "<label for='team-$i'  >Lag {$i}</label>";
-  		echo "<input type='text' name='team-$i' />";
+		if (isset($_SESSION['teams'][$i])) {
+			$value = $_SESSION['teams'][$i]['name'];
+		} else {
+			$value = "";
+		}
+  	echo "<label for='team-$i'>Lag {$i}</label>";
+  	echo "<input type='text' value='$value' name='team-$i' />";
 	} ?>
 	<input type="submit" value="starta" />
 	</form>
