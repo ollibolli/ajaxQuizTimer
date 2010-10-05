@@ -26,23 +26,40 @@ function getTimer(){
 	
 }
 
+function getTeams() {
+	$.ajax({
+		url : "ajax/getTeams.php",
+		success : function(result) {
+			for (var teamId in result){
+				var row = $("<tr>");
+				$("<td>").html(result[teamId]['name']).appendTo(row);
+				var input = $("<input>").attr("type", "text").attr("value", 0).attr("name", "team-" + teamId).addClass("addPoints");
+				$("<td>").append(input).appendTo(row);
+				$("<td>").html(result[teamId]['points']).addClass("totalScore").appendTo(row);
+				$("#teams tbody").append(row);
+			}
+		},
+		dataType : "json"
+	})
+}
+
+
 function getResult(){
 	$.ajax( {
 		url : "ajax/getResult.php",
 		success : function(result) {
 			setNextQuestion(result['state']);
+			$('#countdown, #points, #result').hide();
 			$('#result').show();
-			$('#countdown').hide();
-			$('#points').hide();
+			var teams = $("<div>");
 			for (var lag in result['data']){
+				//uppdatera poängen obs!
 				var div = $("<div>").addClass("team");
 				$("<h2>").addClass("teamName").html(lag).appendTo(div);
 				$("<p>").addClass("teamPoints").html(result['data'][lag]).appendTo(div);
-				//$("#result").append(div);
-				
-				//$('#result_tabel_head').append('<th>'+ lag + '</th>');
-				//$('#result_tabel_body').append('<th>'+res['data'][lag] + '</th>');
+				teams.append(div);
 			}
+			$("#result .teams").html(teams);
 		},
 		dataType : "json"
 	});
@@ -71,7 +88,7 @@ function getPoints(){
 
 function setNextQuestion(state){
 	if (state == "getResult"){
-		window.setTimeout("getResult();", 1500);
+		window.setTimeout("getResult();", 2000);
 	}
 	if (state == "getTimer"){
 		window.setTimeout("getTimer();", 1000);
