@@ -20,9 +20,7 @@
 		<div id="result">
 			<h1>Resultat</h1>
 			
-			<div class="team">
-				<h2 class="teamName"></h2>
-				<p class="teamPoints"></p>
+			<div class="teams">
 			</div>
 		
 		</div>
@@ -30,9 +28,7 @@
 		<div id="points">
 			<h1>Poängställning</h1>
 			
-			<div class="team">
-				<h2 class="teamName"></h2>
-				<p class="teamPoints"></p>
+			<div class="teams">
 			</div>
 		
 		</div>
