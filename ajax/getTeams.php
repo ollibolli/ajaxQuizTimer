@@ -1,5 +1,8 @@
 <?php
 session_start();
 
-echo json_encode($_SESSION['teams']);
+$data['state'] = $_SESSION['state'];
+$data['data'] = $_SESSION['teams'];
+
+echo json_encode($data);
 ?>

@@ -15,6 +15,7 @@
   <body>
 	
 		<div id="counter">
+			<h1>Tid kvar</h1>
 			<p id="countdown"></p>
 		</div>
 	

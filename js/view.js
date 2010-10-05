@@ -1,6 +1,7 @@
-$(document).ready(function() {
-	
-getTimer();
+var isTeamFetched = false;
+
+$(document).ready(function() {	
+	getTimer();
 });
 	
 function getTimer(){
@@ -8,18 +9,18 @@ function getTimer(){
 	$.ajax( {
 		url : "ajax/getTimer.php",
 		success : function(result) {
-			res = result;	
-			setNextQuestion(res['state']);
-			$('#countdown').show();
-			$('#result').hide();
-			$('#points').hide();
-			if (res['data']<=0){
-				res['data']=0;
+			setNextQuestion(result['state']);
+			$('#counter, #points, #result').hide();
+			isTeamFetched = false;
+			$('#counter').show();
+			var timer = result['data'];
+			if (timer <= 0){
+				timer = 0;
 			}
-			$('#countdown').html(res['data']);				
-			
-			
-			//console.log(res);
+			if (timer > 60) {
+				timer = Math.floor(timer/60) + ":" + timer%60;
+			}
+			$('#countdown').html(timer);
 		},
 		dataType : "json"
 	});
@@ -30,14 +31,15 @@ function getTeams() {
 	$.ajax({
 		url : "ajax/getTeams.php",
 		success : function(result) {
-			for (var teamId in result){
-				var row = $("<tr>");
-				$("<td>").html(result[teamId]['name']).appendTo(row);
-				var input = $("<input>").attr("type", "text").attr("value", 0).attr("name", "team-" + teamId).addClass("addPoints");
-				$("<td>").append(input).appendTo(row);
-				$("<td>").html(result[teamId]['points']).addClass("totalScore").appendTo(row);
-				$("#teams tbody").append(row);
+			var teams = $("<div>").addClass("teams").html("<h1>Resultat</h1>");
+			for (var teamId in result['data']){
+				isTeamFetched = true;
+				var div = $("<div>").addClass("team");
+				$("<h2>").addClass("teamName").html(result['data'][teamId]['name']).appendTo(div);
+				$("<p>").addClass("teamPoints").html("...").appendTo(div);
+				div.appendTo(teams);
 			}
+			$("#result").html(teams);
 		},
 		dataType : "json"
 	})
@@ -49,52 +51,52 @@ function getResult(){
 		url : "ajax/getResult.php",
 		success : function(result) {
 			setNextQuestion(result['state']);
-			$('#countdown, #points, #result').hide();
+			$('#counter, #points, #result').hide();
 			$('#result').show();
-			var teams = $("<div>");
-			for (var lag in result['data']){
-				//uppdatera poängen obs!
-				var div = $("<div>").addClass("team");
-				$("<h2>").addClass("teamName").html(lag).appendTo(div);
-				$("<p>").addClass("teamPoints").html(result['data'][lag]).appendTo(div);
-				teams.append(div);
+			if (isTeamFetched == false) {
+				getTeams();
 			}
-			$("#result .teams").html(teams);
+			for (var teamId in result['data']){
+				$(".team:eq("+teamId+")").find(".teamPoints").html(result['data'][teamId]);
+			}
 		},
 		dataType : "json"
 	});
 }
 
 function getPoints(){
-	$.ajax( {
-		url : "ajax/getPoints.php",
+	$.ajax({
+		url : "ajax/getTeams.php",
 		success : function(result) {
-			res = result;	
-			setNextQuestion(res['state']);
-			$('#points').show();
-			$('#result').hide();
-			$('#countdown').hide();
+			setNextQuestion(result['state']);
 			
-			$('#points_tabel_head').html('');
-			$('#points_tabel_body').html('');
-			for (var lag in res['data']){
-				$('#points_tabel_head').append('<th>'+ lag + '</th>');
-				$('#points_tabel_body').append('<th>'+res['data'][lag] + '</th>');
+			$('#counter, #points, #result').hide();
+			isTeamFetched = false;
+			$('#points').show();
+			
+			var teams = $("<div>").addClass("teams");
+			teams.append("<h1>Total poängställning</h1>");
+			for (var teamId in result['data']){
+				var div = $("<div>").addClass("team");
+				$("<h2>").addClass("teamName").html(result['data'][teamId]['name']).appendTo(div);
+				$("<p>").addClass("teamPoints").html(result['data'][teamId]['points']).appendTo(div);
+				teams.append(div);
 			}
+			$("#points").html(teams);
 		},
 		dataType : "json"
-	});
+	})
 }
 
 function setNextQuestion(state){
 	if (state == "getResult"){
-		window.setTimeout("getResult();", 2000);
+		window.setTimeout("getResult();", 2500);
 	}
 	if (state == "getTimer"){
-		window.setTimeout("getTimer();", 1000);
+		window.setTimeout("getTimer();", 500);
 	}
 	if (state == "getPoints"){
-		window.setTimeout("getPoints();", 750);
+		window.setTimeout("getPoints();", 2500);
 	}
 }
 

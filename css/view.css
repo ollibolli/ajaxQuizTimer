@@ -1,31 +1,59 @@
 /* VIEW CSS */
 
+html {
+	background: #000;
+	color: #f6ebd6;
+	font-family: arial, tahoma, sans-serif;
+}
+
+h1 {
+	font-size: 80px;
+	margin: 20px 0;
+	text-align: left;
+	padding-left: 5%;
+	color: #ffdd88;
+	border-bottom: 3px solid #0076b9;
+}
+
 #counter {
 	width: 100%;
-	height: 50px;
-	font-size: 50px;
+	height: 300px;
 	text-align: center;
 	position: absolute;
 	top: 50%;
-	margin-top: -25px;
+	margin-top: -150px;
 }
 
 #result {
 	width: 100%;
-	top: 20%;
+	top: 10%;
 	position: absolute;
 }
 
-table {
+#countdown {
+	font-size: 180px;
+}
+
+.teams {
 	width: 100%;
-	font-size: 30px;
+	position: absolute;
 }
 
-th {
-	height: 50px;
-}
-
-td {
-	width: 30%;
+.team {
 	float: left;
+	width: 26%;
+	padding: 1%;
+	margin: 1%;
+	text-align: center;
+	border-radius: 10px;
+	min-width: 300px;
+}
+
+.teamName {
+	font-size: 50px;
+}
+
+.teamPoints {
+	font-size: 70px;
+	margin-top: 10px;
 }

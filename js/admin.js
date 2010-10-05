@@ -74,7 +74,22 @@ $(document).ready(function(){
 	})
 	
 	
-	$("#state_timer").click();
+	/* STATES */
+	
+	$("#state_form").submit(function(){
+		$.ajax({
+			url : $(this).attr("action"),
+			data : $(this).serialize(),
+			dataType : "json"
+		})
+		return false;
+	})
+	
+	$("#state_timer, #state_result, #state_points").click(function() {
+		$("#state_form").submit();
+	})
+	
+	//$("#state_timer").click();
 	
 });
 
@@ -82,12 +97,12 @@ function getTeams() {
 	$.ajax({
 		url : "ajax/getTeams.php",
 		success : function(result) {
-			for (var teamId in result){
+			for (var teamId in result['data']){
 				var row = $("<tr>");
-				$("<td>").html(result[teamId]['name']).appendTo(row);
+				$("<td>").html(result['data'][teamId]['name']).appendTo(row);
 				var input = $("<input>").attr("type", "text").attr("value", 0).attr("name", "team-" + teamId).addClass("addPoints");
 				$("<td>").append(input).appendTo(row);
-				$("<td>").html(result[teamId]['points']).addClass("totalScore").appendTo(row);
+				$("<td>").html(result['data'][teamId]['points']).addClass("totalScore").appendTo(row);
 				$("#teams tbody").append(row);
 			}
 		},
