@@ -20,7 +20,7 @@ function getTimer(){
 				res['data']=0;
 			}
 			$('#countdown').html(res['data']);
-			console.log(res);
+			//console.log(res);
 		},
 		dataType : "json"
 	});

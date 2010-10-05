@@ -11,7 +11,7 @@ $(document).ready(function() {
 			url : $(this).attr("action"),
 			data : $(this).serialize(),
 			success : function(result) {
-			console.log(result);
+			//console.log(result);
 		},
 		dataType : "json"
 		});

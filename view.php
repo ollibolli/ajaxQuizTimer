@@ -16,60 +16,24 @@
 		<div id="counter">
 			<p id="countdown"></p>
 		</div>
-		
-		<div id="score">
-			
-		</div>
-		
-		<div id="total_score">
-			
-		</div>
 	
 		<div id="result">
-			<table id="result_tabel">
-			RESULTAT	
-				<thead>
-					<tr id="result_tabel_head">
-						<th>
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr id="result_tabel_body">
-						<td>
-						
-						
-						</td>
-					</tr>
-				</tbody>
+			<h1>Resultat</h1>
 			
-			
-			
-			</table>
+			<div class="team">
+				<h2 class="teamName"></h2>
+				<p class="teamPoints"></p>
+			</div>
 		
 		</div>
 
 		<div id="points">
-			<table id="points_tabel">
-			POÄNGSTÄLLNING
-				<thead>
-					<tr id="points_tabel_head">
-						<th>
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr id="points_tabel_body">
-						<td>
-						
-						
-						</td>
-					</tr>
-				</tbody>
+			<h1>Poängställning</h1>
 			
-			
-			
-			</table>
+			<div class="team">
+				<h2 class="teamName"></h2>
+				<p class="teamPoints"></p>
+			</div>
 		
 		</div>
 	

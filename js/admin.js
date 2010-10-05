@@ -6,7 +6,7 @@ $(document).ready(function() {
 			url : $(this).attr("action"),
 			data : $(this).serialize(),
 			success : function(result) {
-			console.log(result);
+			//console.log(result);
 		},
 		dataType : "json"
 		});
@@ -16,12 +16,14 @@ $(document).ready(function() {
 	
 	/* PAUSE FUNCTION */
 	var pause = false;
+	var clicks = 0;
 	$("#pause_timer").click(function() {
 		$.ajax({
 			url : "ajax/pauseTimer.php",
 			data : !pause,
 			success : function(result) {
-				if (pause == false) {
+				clicks++;
+				if (clicks %2 == 1) {
 					$("#pause_timer").text("Play");
 				} else {
 					$("#pause_timer").text("Pause");
