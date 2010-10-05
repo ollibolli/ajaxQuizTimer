@@ -1,4 +1,5 @@
 var timeId;
+var time;
 $(document).ready(function() {
 	
 
@@ -39,7 +40,10 @@ function getTimer(){
 			if (res['data']<=0){
 				res['data']=0;
 			}
-			//$('#countdown').html(res['data']);
+			timeId = window.setTimeout('time=time - 1;',1000);
+			$('#countdown').html(res['data']);				
+			
+			
 			console.log(res);
 		},
 		dataType : "json"
@@ -91,16 +95,14 @@ function getPoints(){
 function setNextQuestion(state){
 	if (state == "getResult"){
 		window.setTimeout("getResult();", 1500);
+		window.clearTimeout(timeID);
 	}
 	if (state == "getTimer"){
 		window.setTimeout("getTimer();", 250);
 	}
 	if (state == "getPoints"){
 		window.setTimeout("getPoints();", 750);
+		window.clearTimeout(timeID);
 	}
 }
 
-function countdown(var pause){
-	
-	timeId = window.setTimout();
-}
