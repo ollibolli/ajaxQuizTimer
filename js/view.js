@@ -95,7 +95,7 @@ function getPoints(){
 function setNextQuestion(state){
 	if (state == "getResult"){
 		window.setTimeout("getResult();", 1500);
-		window.clearTimeout(timeID);
+		window.clearTimeout(timeId);
 	}
 	if (state == "getTimer"){
 		window.setTimeout("getTimer();", 250);
