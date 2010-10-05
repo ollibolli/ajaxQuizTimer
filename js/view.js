@@ -1,10 +1,31 @@
+var timeId;
 $(document).ready(function() {
+	
 
-	var timeLeft=getTimer();
-	//window.setTimeout("getTimer();", 1000);
+	checkState();
+	getTimer();
+});
 
-})
-
+function checkState(){
+	$.ajax( {
+		url : "ajax/state.php",
+		success : function(result) {
+			console.log(result)
+			if (result == "getResult"){
+				getResult();
+			}
+			if (result== "getTimer"){
+				getTimer();
+			}
+			if (result== "getPoints"){
+				getPoints();
+			}
+			window.setTimeout("checkState();", 250);
+		},
+		dataType : "json"
+	});
+}
+	
 function getTimer(){
 	var res = 0;
 	$.ajax( {
@@ -15,11 +36,10 @@ function getTimer(){
 			$('#countdown').show();
 			$('#result').hide();
 			$('#points').hide();
-
 			if (res['data']<=0){
 				res['data']=0;
 			}
-			$('#countdown').html(res['data']);
+			//$('#countdown').html(res['data']);
 			console.log(res);
 		},
 		dataType : "json"
@@ -35,8 +55,7 @@ function getResult(){
 			setNextQuestion(res['state']);
 			$('#result').show();
 			$('#countdown').hide();
-			$('#points').hide();
-			
+			$('#points').hide();			
 			$('#result_tabel_head').html('');
 			$('#result_tabel_body').html('');
 			for (var lag in res['data']){
@@ -74,10 +93,14 @@ function setNextQuestion(state){
 		window.setTimeout("getResult();", 1500);
 	}
 	if (state == "getTimer"){
-		window.setTimeout("getTimer();", 750);
+		window.setTimeout("getTimer();", 250);
 	}
 	if (state == "getPoints"){
 		window.setTimeout("getPoints();", 750);
 	}
 }
 
+function countdown(var pause){
+	
+	timeId = window.setTimout();
+}

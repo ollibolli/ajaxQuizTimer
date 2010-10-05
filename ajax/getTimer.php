@@ -10,7 +10,7 @@ if ($_SESSION['pause']){
 
 $data['state'] = $_SESSION['state'];	
 $data['data'] = $time;
-
+$data['pause'] = $_SESSION['pause'];
 echo json_encode($data);
 	
 ?>
