@@ -22,6 +22,7 @@ $(document).ready(function() {
 			data : !pause,
 			success : function(result) {
 				//$("#pause_timer").attr("value", "")
+				console.log(result);
 			}
 		})
 	})

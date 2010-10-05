@@ -31,6 +31,7 @@
 		$_SESSION['result'] = array();
 		$_SESSION['lastResult'] = array();
 		$_SESSION['time'] = 0;
+		echo "<strong>session rensad</strong>";
 	}
 	
 ?>
