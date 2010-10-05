@@ -21,7 +21,11 @@ $(document).ready(function() {
 			url : "ajax/pauseTimer.php",
 			data : !pause,
 			success : function(result) {
-				//$("#pause_timer").attr("value", "")
+				if (pause == false) {
+					$("#pause_timer").text("Play");
+				} else {
+					$("#pause_timer").text("Pause");
+				}
 			}
 		})
 	})
@@ -67,6 +71,8 @@ $(document).ready(function() {
 		return false;
 	})
 	
+	
+	$("#state_timer").click();
 	
 });
 
