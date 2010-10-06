@@ -7,6 +7,10 @@ html {
 }
 
 h1 {
+	top: 0;
+	height: 100px;
+	width: 100%;
+	display: block;
 	font-size: 80px;
 	margin: 20px 0;
 	text-align: left;
@@ -15,18 +19,17 @@ h1 {
 	border-bottom: 3px solid #0076b9;
 }
 
-#counter {
+#countdown {
 	width: 100%;
-	height: 300px;
+	height: 150px;
 	text-align: center;
 	position: absolute;
 	top: 50%;
-	margin-top: -150px;
+	margin-top: -75px;
 }
 
 #result {
 	width: 100%;
-	top: 10%;
 	position: absolute;
 }
 
@@ -45,8 +48,7 @@ h1 {
 	padding: 1%;
 	margin: 1%;
 	text-align: center;
-	border-radius: 10px;
-	min-width: 300px;
+	min-width: 200px;
 }
 
 .teamName {

@@ -31,7 +31,7 @@ function getTeams() {
 	$.ajax({
 		url : "ajax/getTeams.php",
 		success : function(result) {
-			var teams = $("<div>").addClass("teams").html("<h1>Resultat</h1>");
+			var teams = $("<div>").addClass("teams").append("<h1>Resultat</h1>");
 			for (var teamId in result['data']){
 				isTeamFetched = true;
 				var div = $("<div>").addClass("team");

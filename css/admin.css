@@ -1,5 +1,96 @@
 /* ADMIN CSS */
 
+html {
+	font-family: arial, tahoma, sans-serif;
+	font-size: 18px;
+}
+
+h2 {
+	font-size: 30px;
+	margin-bottom: 10px;
+}
+
+#timer, #teams, #state {
+	background: #ffdd88;
+	padding: 20px;
+	margin: 20px;
+	float: left;
+}
+
+#timer {
+}
+
+#timer input, #pause_timer {
+	width: 160px;
+	height: 50px;
+	font-size: 180%;
+}
+
+#timeMinWrapper, #timeSecWrapper {
+	float: left;
+	margin-right: 20px;
+}
+
+#timer select {
+	font-size: 120%;
+	width: 100px;
+	text-indent: 20px;
+	float: left;
+	clear: left;
+}
+
+#timer label {
+	float: left;
+	clear: left;
+	font-weight: bold;
+}
+
+#timer input[type=submit] {
+	float: left;
+	clear: left;
+	margin-top: 10px;
+}
+
+#teams {
+	clear: left;
+}
+
+#state {
+	float: right;
+}
+
+#state h2 {
+	font-size: 30px;
+	margin-bottom: 10px;
+}
+
+#state label, #state input {
+	font-size: 20px;
+	float: left;
+	font-size: 20px;
+	margin: 10px 0 0 0;
+	font-weight: bold;
+}
+
+#state input {
+	clear: left;
+	height: 20px;
+	width: 20px;
+}
+
+.start_timer, #manage_timer, #countdown {
+	float: left;
+	margin: 0 20px;
+}
+
+#manage_timer {
+	margin-left: 80px;
+}
+
+#countdown {
+	font-size: 40px;
+}
+
 #addTeam {
 	display: none;
 }
@@ -9,6 +100,22 @@
 	padding: 3px 5px;
 	font-weight: bold;
 	font-size: 14px;
+}
+
+tbody td {
+	padding: 2px 5px;
+	border: 1px solid gray;
+}
+
+#setResult th {
+	padding: 2px 4px;
+}
+
+#setResult input[type=submit] {
+	font-size: 110%;
+	font-weight: bold;
+	margin-top: 5px;
+	
 }
 
 .addPoints:hover {

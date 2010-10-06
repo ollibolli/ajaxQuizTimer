@@ -17,7 +17,7 @@ require_once("init.php");
   <body>
    	<form action = "initTeams.php" method="post">
 	<?php for ($i = 0 ; $i<10 ; $i++){ 
-		if (isset($_SESSION['teams'][$i])) {
+		if (isset($_SESSION['teams'][$i]) && !isset($_GET['reset'])) {
 			$value = $_SESSION['teams'][$i]['name'];
 		} else {
 			$value = "";
@@ -27,6 +27,8 @@ require_once("init.php");
 	} ?>
 	<input type="submit" value="starta" />
 	</form>
+	
+	<a href="reset.php">Nollställ lagen</a>
 	
 </body>
 </html>

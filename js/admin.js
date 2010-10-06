@@ -60,6 +60,7 @@ $(document).ready(function(){
 						$(".addPoints").attr("value", 0);
 						$("#teams tbody tr").each(function() {
 							var i = $(this).index();
+							$(this).children(".latestScore").html(data['data'][i]);
 							if (parseInt(data["data"][i]) > 0) {
 								$(this).hide().fadeIn(500);
 								$(this).children(".totalScore").text( parseInt($(this).children(".totalScore").text()) + parseInt(data["data"][i]) );
@@ -89,7 +90,7 @@ $(document).ready(function(){
 		$("#state_form").submit();
 	})
 	
-	//$("#state_timer").click();
+	$("#state_timer").click();
 	
 });
 
@@ -101,7 +102,8 @@ function getTeams() {
 				var row = $("<tr>");
 				$("<td>").html(result['data'][teamId]['name']).appendTo(row);
 				var input = $("<input>").attr("type", "text").attr("value", 0).attr("name", "team-" + teamId).addClass("addPoints");
-				$("<td>").append(input).appendTo(row);
+				$("<td>").append(input).addClass("newScore").appendTo(row);
+				$("<td>").html("0").addClass("latestScore").appendTo(row);
 				$("<td>").html(result['data'][teamId]['points']).addClass("totalScore").appendTo(row);
 				$("#teams tbody").append(row);
 			}
