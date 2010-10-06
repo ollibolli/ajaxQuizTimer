@@ -6,7 +6,7 @@
 <html>
   <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Quiz - Admin (Ändra mig sen)</title>
+    <title>Administrera frågesporten</title>
 		
 		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
 		<script type="text/javascript" src="js/teamClass.js"></script>
@@ -49,8 +49,13 @@
 				<button id="pause_timer">Pause</button>
 			</div>		
 			<div id="countdown">[Ingen timer igång]</div>	
+			<div id="links">
+				<a class="view" href="view.php" target="_blank">Öppna projektor-vyn</a>
+				<a class="setup" href="setup.php">Gå tillbaka och lägg till nya lag</a>
+			</div>
 		</section>
-		
+			
+		</section>
 		
 		<section id="teams">
 			<h2>Lag</h2>
@@ -81,14 +86,6 @@
 			</table>
 			</form>
 			
-			<a href="#" class="addTeam">Lägg till ett lag</a>
-			<div id="addTeam">
-				<form action="ajax/addTeam.php" method="get">
-					<label for="teamName">Fyll i lagnamn</label>
-					<input type="text" id="teamName" name="teamName" placeholder="Lagnamn" />
-					<input type="submit" value="Spara" />
-				</form>
-			</div>
 		</section>
 		
 		<section id="state">

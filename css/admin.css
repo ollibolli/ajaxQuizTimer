@@ -1,23 +1,24 @@
 /* ADMIN CSS */
 
 html {
-	font-family: arial, tahoma, sans-serif;
-	font-size: 18px;
-}
-
-h2 {
-	font-size: 30px;
-	margin-bottom: 10px;
+	background: #ffdd88;
 }
 
 #timer, #teams, #state {
-	background: #ffdd88;
+	background: #fff;
 	padding: 20px;
 	margin: 20px;
 	float: left;
 }
 
 #timer {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#timer h2 {
+	margin: 20px 0 0 20px;
 }
 
 #timer input, #pause_timer {
@@ -51,6 +52,28 @@ h2 {
 	margin-top: 10px;
 }
 
+#timer #links {
+	float: right;
+	text-align: right;
+	width: 180px;
+}
+
+#links a {
+	float: right;
+	clear: right;
+	margin-bottom: 10px;
+	font-weight: bold;
+	color: blue;
+}
+
+#links .view {
+	font-size: 20px;
+}
+
+#links .setup {
+	font-size: 16px;
+}
+
 #teams {
 	clear: left;
 }
@@ -78,9 +101,9 @@ h2 {
 	width: 20px;
 }
 
-.start_timer, #manage_timer, #countdown {
+.start_timer, #manage_timer, #countdown, #links {
 	float: left;
-	margin: 0 20px;
+	margin: 20px;
 }
 
 #manage_timer {
@@ -105,6 +128,10 @@ h2 {
 tbody td {
 	padding: 2px 5px;
 	border: 1px solid gray;
+}
+
+tbody tr:hover {
+	background: #eee;
 }
 
 #setResult th {

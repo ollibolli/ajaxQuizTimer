@@ -90,13 +90,13 @@ function getPoints(){
 
 function setNextQuestion(state){
 	if (state == "getResult"){
-		window.setTimeout("getResult();", 2500);
+		window.setTimeout("getResult();", 1000);
 	}
 	if (state == "getTimer"){
-		window.setTimeout("getTimer();", 500);
+		window.setTimeout("getTimer();", 250);
 	}
 	if (state == "getPoints"){
-		window.setTimeout("getPoints();", 2500);
+		window.setTimeout("getPoints();", 1000);
 	}
 }
 

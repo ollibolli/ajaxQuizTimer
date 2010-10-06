@@ -3,7 +3,7 @@
 <html>
   <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Quiz - View (Ändra mig sen)</title>
+    <title>Frågesport</title>
 		
 		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
 		<script type="text/javascript" src="js/view.js"></script>

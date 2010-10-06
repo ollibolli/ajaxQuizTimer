@@ -10,5 +10,8 @@
 			$_SESSION['teams'][] = array( "name" => $_POST["team-$i"] , "points" => 0 );
 		}
 	}
+	
+	//en timer måste vara igång, den sätts till time direkt när en tävling körs igång
+	$_SESSION['time'] = time();
 
 	header('Location: admin.php');

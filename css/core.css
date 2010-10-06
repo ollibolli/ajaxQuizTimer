@@ -15,4 +15,13 @@ del { text-decoration: line-through; }
 table { border-collapse: collapse; border-spacing: 0; }
 article, aside, figure, footer, header, hgroup, menu, nav, section { display: block; }
 
-/* NEW RULES */
+
+html {
+	font-family: arial, tahoma, sans-serif;
+	font-size: 18px;
+}
+
+h2 {
+	font-size: 30px;
+	margin-bottom: 10px;
+}

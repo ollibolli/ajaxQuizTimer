@@ -2,13 +2,13 @@
 
 html {
 	background: #000;
-	color: #f6ebd6;
-	font-family: arial, tahoma, sans-serif;
+	color: #fff;
+	overflow: hidden;
 }
 
 h1 {
 	top: 0;
-	height: 100px;
+	height: 80px;
 	width: 100%;
 	display: block;
 	font-size: 80px;
@@ -44,15 +44,17 @@ h1 {
 
 .team {
 	float: left;
-	width: 26%;
+	width: 20%;
 	padding: 1%;
 	margin: 1%;
 	text-align: center;
-	min-width: 200px;
+	background: #222;
+	height: 130px;
+	overflow: hidden;
 }
 
 .teamName {
-	font-size: 50px;
+	font-size: 30px;
 }
 
 .teamPoints {

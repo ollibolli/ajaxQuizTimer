@@ -137,8 +137,17 @@ function getTimer(){
 		url : "ajax/getTimer.php",
 		success : function(result) {
 			window.setTimeout("getTimer();", 1000);
-			$('#countdown').html(result['data']);
-			//console.log(result);
+			var timer = result['data'];
+			if (timer <= 0){
+				timer = 0;
+			}
+			if (timer > 60) {
+				timer = Math.floor(timer/60) + ":" + timer%60;
+			}
+			$('#countdown').html(timer);
+			
+			//$('#countdown').html(result['data']);
+			
 		},
 		dataType : "json"
 	});
