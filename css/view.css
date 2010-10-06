@@ -44,20 +44,24 @@ h1 {
 
 .team {
 	float: left;
-	width: 20%;
-	padding: 1%;
+	position: relative;
+	width: 23%;
 	margin: 1%;
 	text-align: center;
 	background: #222;
-	height: 130px;
+	height: 100px;
 	overflow: hidden;
 }
 
 .teamName {
-	font-size: 30px;
+	margin-top: 3px;
+	font-size: 32px;
 }
 
 .teamPoints {
-	font-size: 70px;
-	margin-top: 10px;
+	position: absolute;
+	width: 100%;
+	font-size: 62px;
+	bottom: 0;
+	background: #222;
 }

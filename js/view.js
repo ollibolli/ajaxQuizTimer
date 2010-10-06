@@ -18,7 +18,12 @@ function getTimer(){
 				timer = 0;
 			}
 			if (timer > 60) {
-				timer = Math.floor(timer/60) + ":" + timer%60;
+				var min = Math.floor(timer/60);
+				var sec = timer%60;
+				if (sec < 10) {
+					sec = "0" + sec;
+				}
+				timer = min + ":" + sec;
 			}
 			$('#countdown').html(timer);
 		},

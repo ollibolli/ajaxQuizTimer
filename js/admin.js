@@ -6,11 +6,10 @@ $(document).ready(function(){
 			url : $(this).attr("action"),
 			data : $(this).serialize(),
 			success : function(result) {
-			//console.log(result);
+				$("#pause_timer").text("Pause");
 		},
 		dataType : "json"
 		});
-		//getTimer();
 		return false;
 	})
 	
@@ -143,17 +142,20 @@ function getTimer(){
 	$.ajax( {
 		url : "ajax/getTimer.php",
 		success : function(result) {
-			window.setTimeout("getTimer();", 1000);
+			window.setTimeout("getTimer();", 250);
 			var timer = result['data'];
 			if (timer <= 0){
 				timer = 0;
 			}
 			if (timer > 60) {
-				timer = Math.floor(timer/60) + ":" + timer%60;
+				var min = Math.floor(timer/60);
+				var sec = timer%60;
+				if (sec < 10) {
+					sec = "0" + sec;
+				}
+				timer = min + ":" + sec;
 			}
 			$('#countdown').html(timer);
-			
-			//$('#countdown').html(result['data']);
 			
 		},
 		dataType : "json"
