@@ -93,12 +93,18 @@ html {
 	font-size: 20px;
 	margin: 10px 0 0 0;
 	font-weight: bold;
+	cursor: pointer;
 }
 
 #state input {
 	clear: left;
 	height: 20px;
 	width: 20px;
+}
+
+#state label {
+	color: blue;
+	text-decoration: underline;
 }
 
 .start_timer, #manage_timer, #countdown, #links {
@@ -127,11 +133,19 @@ html {
 
 tbody td {
 	padding: 2px 5px;
-	border: 1px solid gray;
+	border: 1px solid #444;
+}
+
+tbody tr:nth-child(odd) {
+	background: #ffd773;
+}
+
+tbody tr:nth-child(even) {
+	background: #ffeec4;
 }
 
 tbody tr:hover {
-	background: #eee;
+	background: #fff;
 }
 
 #setResult th {
@@ -142,9 +156,6 @@ tbody tr:hover {
 	font-size: 110%;
 	font-weight: bold;
 	margin-top: 5px;
-	
-}
-
-.addPoints:hover {
-	background: yellow;
+	width: 80px;
+	height: 35px;	
 }

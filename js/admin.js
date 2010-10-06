@@ -92,6 +92,7 @@ $(document).ready(function(){
 	
 	$("#state_timer").click();
 	
+	
 });
 
 function getTeams() {
@@ -101,7 +102,13 @@ function getTeams() {
 			for (var teamId in result['data']){
 				var row = $("<tr>");
 				$("<td>").html(result['data'][teamId]['name']).appendTo(row);
-				var input = $("<input>").attr("type", "text").attr("value", 0).attr("name", "team-" + teamId).addClass("addPoints");
+				var input = $("<input>").attr("type", "text").attr("value", 0).attr("name", "team-" + teamId).addClass("addPoints").blur(function(){
+					if (isNaN(parseInt($(this).val()))) {
+						$(this).val("0").css({"background":"red"});
+					} else {
+						$(this).val(parseInt($(this).val())).css({"background":"white"});
+					}
+				});
 				$("<td>").append(input).addClass("newScore").appendTo(row);
 				$("<td>").html("0").addClass("latestScore").appendTo(row);
 				$("<td>").html(result['data'][teamId]['points']).addClass("totalScore").appendTo(row);
