@@ -21,5 +21,8 @@
 		$_SESSION['lastResult'] = array();
 	}
 	
+	// SET SESSION TO DAYS INSTEAD OF 20 MINS
+	
+	ini_set("session.gc_maxlifetime", 60*60*24*10);
 	
 ?>

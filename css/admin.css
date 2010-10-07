@@ -104,7 +104,6 @@ html {
 
 #state label {
 	color: blue;
-	text-decoration: underline;
 }
 
 .start_timer, #manage_timer, #countdown, #links {

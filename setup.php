@@ -37,8 +37,7 @@ require_once("init.php");
 		</form>
 	
 		<a class="reset" href="reset.php">Nollställ lagen</a>
-	
+
 	</section>
-	
 </body>
 </html>
