@@ -7,6 +7,7 @@ $(document).ready(function(){
 			data : $(this).serialize(),
 			success : function(result) {
 				$("#pause_timer").text("Pause");
+				$("input#state_timer").attr("checked", "checked");
 		},
 		dataType : "json"
 		});

@@ -41,7 +41,7 @@ function getTeams() {
 				isTeamFetched = true;
 				var div = $("<div>").addClass("team");
 				$("<h2>").addClass("teamName").html(result['data'][teamId]['name']).appendTo(div);
-				$("<p>").addClass("teamPoints").html("...").appendTo(div);
+				$("<p>").addClass("teamPoints").html("<img src='images/load.gif' />").appendTo(div);
 				div.appendTo(teams);
 			}
 			$("#result").html(teams);

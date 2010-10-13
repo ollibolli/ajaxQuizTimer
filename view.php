@@ -15,8 +15,10 @@
   <body>
 	
 		<div id="counter">
+			<div id="flower"></div>
 			<h1>Tid kvar</h1>
 			<p id="countdown"></p>
+			
 		</div>
 	
 		<div id="result">

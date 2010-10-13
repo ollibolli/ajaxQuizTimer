@@ -1,22 +1,29 @@
 /* VIEW CSS */
 
 html {
-	background: #000;
-	color: #fff;
+	background: #fff url("../images/bg.png") no-repeat right bottom;
+	color: #000;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	background: transparent url("../images/pro.png") no-repeat 20px 20px;
+	width: 100%;
+	height: 100%;
 	overflow: hidden;
 }
 
 h1 {
-	top: 0;
-	height: 80px;
+	margin: 120px 0 20px;
+	height: 60px;
 	width: 100%;
 	display: block;
-	font-size: 80px;
-	margin: 20px 0;
-	text-align: left;
-	padding-left: 5%;
-	color: #ffdd88;
-	border-bottom: 3px solid #0076b9;
+	font-size: 60px;
+	text-align: center;
+	color: #000;
+	z-index: 101;
 }
 
 #countdown {
@@ -35,6 +42,7 @@ h1 {
 
 #countdown {
 	font-size: 180px;
+	z-index: 100;
 }
 
 .teams {
@@ -45,23 +53,37 @@ h1 {
 .team {
 	float: left;
 	position: relative;
-	width: 23%;
-	margin: 1%;
-	text-align: center;
-	background: #222;
-	height: 100px;
+	width: 40%;
+	margin: 1% 5% 0;
+	text-align: left;
+	height: 60px;
 	overflow: hidden;
 }
 
 .teamName {
-	margin-top: 3px;
+	float: left;
+	height: 60px;
+	line-height: 60px;
 	font-size: 32px;
+	max-width: 75%;
+	overflow: hidden;
 }
 
 .teamPoints {
+	float: right;
+	height: 100%;
+	line-height: 100%;
+	padding-left: 20px;
+	margin-right: 5%;
+	font-size: 60px;
+}
+
+#flower {
 	position: absolute;
-	width: 100%;
-	font-size: 62px;
 	bottom: 0;
-	background: #222;
+	right: 0;
+	width: 300px;
+	height: 750px;
+	background: transparent url("../images/flower.png");
+	z-index: -1;
 }
